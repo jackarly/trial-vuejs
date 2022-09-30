@@ -1,7 +1,9 @@
 <template>
     <div class="note">
         <h3>{{ note.title }}
-            <i class="fa fa-times"></i>
+            <i class="fa fa-times"
+                @click="onDelete(note.id)" >
+            </i>
         </h3>
         <p>{{ note.date }}</p>
     </div>
@@ -12,6 +14,12 @@ export default {
     name: 'Note',
     props: {
         note: Object
+    },
+    methods: {
+        onDelete(id){
+            // console.log(id)
+            this.$emit('delete-note', id)
+        }
     }
 }
 </script>

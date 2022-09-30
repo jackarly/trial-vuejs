@@ -28,4 +28,8 @@ header {
     align-items: center;
     margin-bottom: 20px;
 }
+
+h1 {
+    font-weight: bold;
+}
 </style>

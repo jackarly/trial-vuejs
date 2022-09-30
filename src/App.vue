@@ -3,7 +3,8 @@
     <!-- HEADER & ADD NOTES -->
     <!-- <h3>eListahan</h3> -->
     <Header />
-    <NoteList :noteList="noteList" />
+    <NoteList :noteList="noteList" 
+      @delete-note="deleteNote" />
     <!-- NOTE LIST -->
 
 
@@ -23,6 +24,14 @@ export default {
   data (){
     return {
       noteList:[]
+    }
+  },
+  methods:{
+    deleteNote(id){
+      // console.log('note', id)
+      if(confirm('Are you sure you want to delete this note?')){
+        this.noteList = this.noteList.filter((note) => note.id != id)
+      }
     }
   },
   created (){
