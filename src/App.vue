@@ -2,8 +2,10 @@
   <div class="container">
     <!-- HEADER & ADD NOTES -->
     <!-- <h3>eListahan</h3> -->
-    <Header />
-    <AddNote @add-note="addNote" />
+    <Header @toggle-add-note="toggleAddNote" />
+    <div v-show="showAddNote">
+      <AddNote @add-note="addNote" />
+    </div>
     <NoteList :noteList="noteList" 
       @delete-note="deleteNote" />
     <!-- NOTE LIST -->
@@ -26,10 +28,14 @@ export default {
 },
   data (){
     return {
-      noteList:[]
+      noteList:[],
+      showAddNote: false,
     }
   },
   methods:{
+    toggleAddNote(){
+      this.showAddNote = !this.showAddNote
+    },
     addNote(note){
       this.noteList = [...this.noteList, note]
     },

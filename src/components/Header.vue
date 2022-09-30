@@ -2,7 +2,7 @@
     <header>
         <h1>eListahan</h1>
         <button class="btn"
-            @click="onClick()">
+            @click="$emit('toggle-add-note')">
             
             <i class="fa fa-plus"></i>
         </button>
@@ -13,11 +13,11 @@
 <script>
 export default {
     name: 'Header',
-    methods: {
-        onClick() {
-            console.log('click')
-        },
-    },
+    // methods: {
+    //     onClick() {
+    //         this.$emit('toggle-add-note')
+    //     },
+    // },
 }
 </script>
 
