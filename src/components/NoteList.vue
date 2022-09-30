@@ -10,7 +10,8 @@
     <div :key="note.id" v-for="note in noteList">
         <div>
             <Note :note="note" 
-                @delete-note="$emit('delete-note', note.id)" />
+                @delete-note="$emit('delete-note', note.id)"
+                @toggle-update="$emit('toggle-update', note.id)" />
         </div>
     </div>
 
@@ -32,7 +33,7 @@ export default {
     components: {
         Note,
     },
-    emits: ['delete-note'],
+    emits: ['delete-note', 'toggle-update'],
 }
 </script>
 

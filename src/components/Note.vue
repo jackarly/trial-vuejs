@@ -1,5 +1,5 @@
 <template>
-    <div class="note">
+    <div @dblclick="$emit('toggle-update', note.id)" class="note">
         <h3>{{ note.title }}
             <i class="fa fa-times"
                 @click="onDelete(note.id)" >
@@ -40,5 +40,8 @@ export default {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+i {
+    color: Green;
 }
 </style>

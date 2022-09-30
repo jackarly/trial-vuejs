@@ -7,7 +7,8 @@
       <AddNote @add-note="addNote" />
     </div>
     <NoteList :noteList="noteList" 
-      @delete-note="deleteNote" />
+      @delete-note="deleteNote"
+      @toggle-update="toggleUpdate" />
     <!-- NOTE LIST -->
 
 
@@ -44,6 +45,9 @@ export default {
       if(confirm('Are you sure you want to delete this note?')){
         this.noteList = this.noteList.filter((note) => note.id != id)
       }
+    },
+    toggleUpdate(id) {
+      console.log(id)
     }
   },
   created (){
