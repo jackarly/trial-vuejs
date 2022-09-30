@@ -3,6 +3,7 @@
     <!-- HEADER & ADD NOTES -->
     <!-- <h3>eListahan</h3> -->
     <Header />
+    <AddNote @add-note="addNote" />
     <NoteList :noteList="noteList" 
       @delete-note="deleteNote" />
     <!-- NOTE LIST -->
@@ -14,19 +15,24 @@
 <script>
 import Header from './components/Header.vue';
 import NoteList from './components/NoteList.vue';
+import AddNote from './components/AddNote.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
     NoteList,
-  },
+    AddNote,
+},
   data (){
     return {
       noteList:[]
     }
   },
   methods:{
+    addNote(note){
+      this.noteList = [...this.noteList, note]
+    },
     deleteNote(id){
       // console.log('note', id)
       if(confirm('Are you sure you want to delete this note?')){

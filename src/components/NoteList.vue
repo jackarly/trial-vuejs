@@ -1,5 +1,6 @@
 <template>
-
+    <h2>All Notes</h2>
+    <hr>
     <div v-if="!noteList.length">
         <p>
             Tap the + button to create a note.
@@ -34,4 +35,11 @@ export default {
     emits: ['delete-note'],
 }
 </script>
+
+<style>
+small {
+    padding-left: 5px;
+    font-style: italic;
+}
+</style>
 
