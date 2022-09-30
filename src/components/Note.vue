@@ -1,0 +1,36 @@
+<template>
+    <div class="note">
+        <h3>{{ note.title }}
+            <i class="fa fa-times"></i>
+        </h3>
+        <p>{{ note.date }}</p>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'Note',
+    props: {
+        note: Object
+    }
+}
+</script>
+
+<style scope>
+.fa-times {
+    color: red;
+}
+
+.note {
+    background: #f4f4f4;
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.note h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+</style>

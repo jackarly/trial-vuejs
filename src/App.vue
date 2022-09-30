@@ -3,7 +3,7 @@
     <!-- HEADER & ADD NOTES -->
     <!-- <h3>eListahan</h3> -->
     <Header />
-
+    <NoteList :noteList="noteList" />
     <!-- NOTE LIST -->
 
 
@@ -12,12 +12,41 @@
 
 <script>
 import Header from './components/Header.vue';
+import NoteList from './components/NoteList.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-  }
+    NoteList,
+  },
+  data (){
+    return {
+      noteList:[]
+    }
+  },
+  created (){
+    this.noteList = [
+      {
+        id: 1,
+        title: '1' ,
+        body: '1',
+        date: '1', 
+      },
+      {
+        id: 2,
+        title: '2' ,
+        body: '2',
+        date: '2', 
+      },
+      {
+        id: 3,
+        title: '3' ,
+        body: '3',
+        date: '3', 
+      },
+    ]
+  },
 }
 
 </script>
@@ -49,6 +78,7 @@ export default {
     display: inline-block;
     /* background: #000;
     color: #fff; */
+    background: #fff;
     border: none;
     /* padding: 5px 10px; */
     margin: 5px;
