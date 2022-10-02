@@ -4,7 +4,7 @@
     <Header @toggle-add-note="toggleAddNote" />
 
     <!-- NOTELIST -->
-    <NoteList />
+    <NoteList :showAddNote = "showAddNote" @toggle-true="toggleTrue" />
   </div>
 </template>
 
@@ -21,13 +21,15 @@
     data (){
       return {
         showAddNote: false,
-        showNote:[],
       }
     },
     methods:{
       toggleAddNote(){
         this.showAddNote = !this.showAddNote
       },
+      toggleTrue(){
+        this.showAddNote = true
+      }
       
     },
   }

@@ -1,19 +1,21 @@
 <template>
     <!-- FORM -->
-    <form @submit="onSubmit" class="add-form">
-        <div class="form-control">
-            <input v-model="title"
-                type="text"
-                name="title"
-                placeholder="Title" />
-        </div>
-        <div class="form-control">
-            <textarea v-model="body"
-                name="body"
-                placeholder="Note"></textarea>
-        </div>
-        <input type="submit" value="Save" class="btn btn-block" />
-    </form>
+    <div v-show="showAddNote">
+        <form @submit="onSubmit" class="add-form">
+            <div class="form-control">
+                <input v-model="title"
+                    type="text"
+                    name="title"
+                    placeholder="Title" />
+            </div>
+            <div class="form-control">
+                <textarea v-model="body"
+                    name="body"
+                    placeholder="Note"></textarea>
+            </div>
+            <input type="submit" value="Save" class="btn btn-block btn-save" />
+        </form>
+    </div>
 
     <!-- NOTELIST -->
     <h2>All Notes</h2>
@@ -37,6 +39,9 @@
 <script>
     export default {
         name: 'NoteList',
+        props: {
+            showAddNote: Boolean,
+        },
         data() {
             return {
                 noteList:[],
@@ -77,6 +82,7 @@
                 this.title = this.noteList[index].title;
                 this.body = this.noteList[index].body;
                 this.updateNote = index;
+                this.$emit('toggle-true')
             },
         },
         created (){
@@ -98,10 +104,14 @@
                 },
             ]
         },
+        emits: ['toggle-true'],
     }
 </script>
 
 <style>
+    *{
+        font-family: 'Poppins', sans-serif;
+    }
     small {
         padding-left: 5px;
         font-style: italic;
@@ -124,7 +134,7 @@
     }
     .form-control textarea {
         width: 100%;
-        height: 200px;
+        height: 150px;
         margin: 5px;
         padding: 3px 7px;
         font-size: 17px;
@@ -156,7 +166,12 @@
         justify-content: space-between;
     }
     i {
-        color: Green;
+        color: rgb(5, 90, 5);
+    }
+    .btn-save{
+        background: green;
+        color: #fff;
+        font-size: 25px;
     }
 </style>
 

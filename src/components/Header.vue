@@ -11,12 +11,7 @@
 
 <script>
     export default {
-        name: 'Header',
-        // methods: {
-        //     onClick() {
-        //         this.$emit('toggle-add-note')
-        //     },
-        // },
+        name: 'Header'
     }
 </script>
 
@@ -31,4 +26,8 @@ header {
 h1 {
     font-weight: bold;
 }
+
+i {
+    color: Green;
+    }
 </style>
