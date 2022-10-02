@@ -6,19 +6,18 @@
             
             <i class="fa fa-plus"></i>
         </button>
-        
     </header>
 </template>
 
 <script>
-export default {
-    name: 'Header',
-    // methods: {
-    //     onClick() {
-    //         this.$emit('toggle-add-note')
-    //     },
-    // },
-}
+    export default {
+        name: 'Header',
+        // methods: {
+        //     onClick() {
+        //         this.$emit('toggle-add-note')
+        //     },
+        // },
+    }
 </script>
 
 <style scoped>
